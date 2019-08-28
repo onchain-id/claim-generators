@@ -1,0 +1,10 @@
+{
+  "name": "@investorid/claim-generators",
+  "version": "0.1.0",
+  "description": "Generate and parse standard claims.",
+  "main": "index.js",
+  "repository": "https://github.com/investorid/claim-generators",
+  "author": "InvestorID Organization",
+  "license": "MIT",
+  "private": false
+}

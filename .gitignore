@@ -1,0 +1,9 @@
+# Editors
+.idea
+.vscode
+
+# OS
+.DS_Store
+
+# Libraries
+node_modules
