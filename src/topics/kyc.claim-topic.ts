@@ -1,6 +1,7 @@
 import { ClaimTopic, GeneratedClaim, ParsedClaim, UnparsedClaim } from '../claim';
 import { ParseOptions, Parser } from '../parser';
 import { GenerationOptions, Generator } from '../generator';
+import { Handler } from '../handler';
 
 export class KycClaimTopic implements ClaimTopic {
   static readonly scheme = 10;
@@ -8,8 +9,8 @@ export class KycClaimTopic implements ClaimTopic {
   static readonly specific = true;
 }
 
-export interface KycClaimHandler extends Parser<KycClaimTopic>, Generator<KycClaimTopic> { }
-export class KycClaimHandler implements Parser<KycClaimTopic>, Generator<KycClaimTopic> {
+export interface KycClaimHandler extends Handler<KycClaimTopic> { }
+export class KycClaimHandler implements Handler<KycClaimTopic> {
   static readonly scheme = KycClaimTopic.scheme;
   static readonly topic = KycClaimTopic.topic;
 
