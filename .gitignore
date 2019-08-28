@@ -8,3 +8,6 @@
 # Libraries
 node_modules
 yarn.lock
+
+# Output
+dist
