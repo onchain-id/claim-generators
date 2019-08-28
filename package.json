@@ -8,8 +8,8 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "commitlint": "^8.1.0",
-    "husky": "^3.0.4"
+    "commitlint": "8.1.0",
+    "husky": "3.0.4"
   },
   "husky": {
     "hooks": {
