@@ -2,8 +2,18 @@
   "name": "@investorid/claim-generators",
   "version": "0.1.0",
   "description": "Generate and parse standard claims.",
-  "main": "index.js",
   "repository": "https://github.com/investorid/claim-generators",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "bin": "./dist",
+    "lib": "./src",
+    "test": "./test",
+    "docs": "./docs"
+  },
   "author": "InvestorID Organization",
   "license": "MIT",
   "private": false,
@@ -15,5 +25,9 @@
     "hooks": {
       "commit-msg": "node ./scripts/commit-msg.js $HUSKY_GIT_PARAMS && commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "engines": {
+    "node": "> 8.0.0",
+    "npm": "> 5.0.0"
   }
 }
