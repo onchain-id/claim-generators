@@ -4,6 +4,8 @@ import { GenerationOptions, Generator, InputType } from '../interfaces/generator
 import { Handler } from '../interfaces/handler';
 import { IsDateString, IsIn, IsNotEmpty, IsString } from 'class-validator';
 import { transformAndValidate } from 'class-transformer-validator';
+import {sha256} from "ethers/utils";
+import { toHex } from '../utils';
 
 export class KycClaimTopic implements ClaimTopic {
   static readonly scheme = 1;
@@ -15,13 +17,13 @@ export class KycClaimTopic implements ClaimTopic {
 
 class KycClaimInputData implements InputType {
   @IsNotEmpty()
-  details?: { [key: string]: any };
+  details!: { [key: string]: any };
 
   @IsString()
-  status?: string;
+  status!: string;
 
   @IsDateString()
-  date?: string;
+  date!: string;
 }
 
 export interface KycClaimHandler extends Handler<KycClaimTopic> { }
@@ -32,13 +34,21 @@ export abstract class KycClaimHandler implements Handler<KycClaimTopic> {
   static readonly inputType = KycClaimTopic.inputType;
 
   static async parse({ claim, options = {} }: { claim: UnparsedClaim<KycClaimTopic>; options?: ParseOptions }): Promise<ParsedClaim<KycClaimTopic>> {
+    if(claim.topic !== KycClaimTopic.topic) {
+      throw new Error('Claim is not of this parser topic.');
+    }
+
+    if(claim.scheme !== KycClaimTopic.scheme) {
+      throw new Error('Claim is not of this parser scheme.');
+    }
+
     return {
-      topic: 1010101,
-      data: "",
-      uri: "",
-      issuer: "",
-      scheme: 9,
-      signature: "",
+      topic: claim.topic,
+      data: claim.data,
+      uri: claim.uri,
+      issuer: claim.issuer,
+      scheme: claim.scheme,
+      signature: claim.signature,
       parsedData: {},
     };
   }
@@ -47,12 +57,12 @@ export abstract class KycClaimHandler implements Handler<KycClaimTopic> {
     const validatedInputData = await KycClaimHandler.validateInput({ inputData });
 
     return {
-      topic: 1010101,
-      data: "",
-      uri: "",
+      topic: KycClaimTopic.topic,
+      data: sha256(toHex(JSON.stringify(inputData))),
+      uri: '',
       issuer: options.issuer,
-      scheme: 9,
-      privateData: {},
+      scheme: KycClaimTopic.scheme,
+      privateData: inputData,
       publicData: {},
     };
   }
