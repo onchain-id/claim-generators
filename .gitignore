@@ -11,3 +11,6 @@ yarn.lock
 
 # Output
 dist
+
+# Log
+*.log

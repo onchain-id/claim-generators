@@ -6,13 +6,18 @@ export interface GenerationOptions {
   identity?: Address;
 }
 
+export interface InputType {}
+
 /**
  * Interface to be implemented by claim topic handlers.
  * Define the type of the claim topic handled as `Generator<topic>`
  */
-export interface Generator<Topic extends ClaimTopic = {}> {
-  readonly topic: number;
-  readonly scheme: number;
+export abstract class Generator<Topic extends ClaimTopic = {}> {
+  static readonly topic: number;
+  static readonly scheme: number;
+  static readonly topicName: string;
 
-  generate({ inputData, options }: { inputData: any, options?: GenerationOptions }): Promise<GeneratedClaim<Topic>>;
+  abstract generate({ inputData, options }: { inputData: InputType, options?: GenerationOptions }): Promise<GeneratedClaim<Topic>>;
+
+  abstract validateInput({ inputData }: { inputData: InputType }): Promise<InputType>;
 }
