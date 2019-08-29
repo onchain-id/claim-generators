@@ -10,7 +10,7 @@ export interface GenerationOptions {
  * Interface to be implemented by claim topic handlers.
  * Define the type of the claim topic handled as `Generator<topic>`
  */
-export interface Generator<Topic extends ClaimTopic> {
+export interface Generator<Topic extends ClaimTopic = {}> {
   readonly topic: number;
   readonly scheme: number;
 

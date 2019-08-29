@@ -4,8 +4,8 @@ import { GenerationOptions, Generator } from '../interfaces/generator';
 import { Handler } from '../interfaces/handler';
 
 export class KycClaimTopic implements ClaimTopic {
-  static readonly scheme = 10;
-  static readonly topic = 12;
+  static readonly scheme = 1;
+  static readonly topic = 1010101;
   static readonly specific = true;
 }
 
@@ -16,7 +16,7 @@ export class KycClaimHandler implements Handler<KycClaimTopic> {
 
   static async parse({ claim, options = {} }: { claim: UnparsedClaim<KycClaimTopic>; options?: ParseOptions }): Promise<ParsedClaim<KycClaimTopic>> {
     return {
-      topic: 10,
+      topic: 1010101,
       data: "",
       uri: "",
       issuer: "",
@@ -28,7 +28,7 @@ export class KycClaimHandler implements Handler<KycClaimTopic> {
 
   static async generate({ inputData, options = {} }: { inputData: any; options?: GenerationOptions }): Promise<GeneratedClaim<KycClaimTopic>> {
     return {
-      topic: 10,
+      topic: 1010101,
       data: "",
       uri: "",
       issuer: "",

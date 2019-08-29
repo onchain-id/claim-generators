@@ -8,7 +8,7 @@ export interface ParseOptions {
  * Interface to be implemented by claim topic handlers.
  * Define the type of the claim topic handled as `Parser<topic>`
  */
-export interface Parser<Topic extends ClaimTopic> {
+export interface Parser<Topic extends ClaimTopic = {}> {
   readonly topic: number;
   readonly scheme: number;
 
