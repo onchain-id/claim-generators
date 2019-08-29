@@ -1,7 +1,7 @@
-import { ClaimTopic, GeneratedClaim, ParsedClaim, UnparsedClaim } from '../claim';
-import { ParseOptions, Parser } from '../parser';
-import { GenerationOptions, Generator } from '../generator';
-import { Handler } from '../handler';
+import { ClaimTopic, GeneratedClaim, ParsedClaim, UnparsedClaim } from '../interfaces/claim';
+import { ParseOptions, Parser } from '../interfaces/parser';
+import { GenerationOptions, Generator } from '../interfaces/generator';
+import { Handler } from '../interfaces/handler';
 
 export class KycClaimTopic implements ClaimTopic {
   static readonly scheme = 10;
