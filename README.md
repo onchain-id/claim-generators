@@ -1,4 +1,4 @@
-Claim Generators for Investor🆔 standard Identities.
+Claim Generators for Onchain🆔 standard Identities.
 
 Generate and parse standard claims for blockchain Identities.
 
@@ -6,7 +6,7 @@ Generate and parse standard claims for blockchain Identities.
 
 ## Installation
 
-Install with `yarn install @investorid/claim-generators`.
+Install with `yarn install @onchain-id/claim-generators`.
 
 ## Features
 
@@ -15,7 +15,7 @@ Install with `yarn install @investorid/claim-generators`.
 The package exposes its current version in the default export.
 
 ```typescript
-import Package from "@investorid/claim-generators";
+import Package from "@onchain-id/claim-generators";
 
 console.log(Package.version);
 ```

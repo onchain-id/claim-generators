@@ -1,8 +1,8 @@
 {
-  "name": "@investorid/claim-generators",
-  "version": "0.1.0",
+  "name": "@onchain-id/claim-generators",
+  "version": "0.1.1-beta",
   "description": "Generate and parse standard claims.",
-  "repository": "https://github.com/investorid/claim-generators",
+  "repository": "https://github.com/onchain-id/claim-generators",
   "scripts": {
     "lint": "eslint src/**/**.ts",
     "build": "tsc"
@@ -18,7 +18,7 @@
     "test": "./test",
     "docs": "./docs"
   },
-  "author": "InvestorID Organization",
+  "author": "OnchainID Organization",
   "license": "MIT",
   "private": false,
   "devDependencies": {
